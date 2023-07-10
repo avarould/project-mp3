@@ -1,13 +1,51 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,
+body,
+:root {
+    height: 100%;
+    background-color: black;
+    color-scheme: dark;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.active {
+    color: #02b875;
+    transition: 0.5s;
+}
+
+.kai .overlay {
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.kai .overlay .hide {
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.kai .box .icon:hover .show {
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.kai .box .icon:hover .hide,
+.kai .box:hover .overlay {
+    opacity: 1;
+}
+
+.is-sticky {
+    position: fixed;
+    top: 10px;
+    z-index: 9;
+    animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+}
+
+@media screen and (max-width: 768px) {
+    .is-sticky {
+        position: relative;
+    }
 }
